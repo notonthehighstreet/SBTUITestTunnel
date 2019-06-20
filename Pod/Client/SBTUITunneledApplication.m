@@ -79,7 +79,7 @@
     if (error != nil) {
         NSAssert(NO, error.localizedDescription);
     }
-    [self terminate];
+    [super terminate];
 }
 
 # pragma mark - SBTUITestTunnelClientProtocol -
@@ -99,9 +99,9 @@
     [self.client launchConnectionless:command];
 }
 
-- (void)terminateTunnel
+- (void)terminate
 {
-    [self.client terminateTunnel];
+    [self.client terminate];
 }
 
 #pragma mark - Timeout
@@ -122,7 +122,7 @@
 
 - (NSString *)stubRequestsMatching:(SBTRequestMatch *)match response:(SBTStubResponse *)response
 {
-    return [self.client  stubRequestsMatching:match response:response];
+    return [self.client stubRequestsMatching:match response:response];
 }
 
 #pragma mark - Stub And Remove Commands

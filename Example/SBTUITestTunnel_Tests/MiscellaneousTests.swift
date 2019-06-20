@@ -111,4 +111,32 @@ class MiscellaneousTests: XCTestCase {
         XCTAssertEqual(networkString, "{\"hello\":\"there\"}\n")
         XCTAssertEqual(responsetHeaders!["Content-Type"] as? String, "application/json")
     }
+    
+    func testShutdown() {
+        app.launchTunnel()
+        
+        app.terminate()
+        XCTAssert(app.wait(for: .notRunning, timeout: 5))
+        
+        app.launchTunnel()
+        XCTAssert(app.wait(for: .runningForeground, timeout: 5))
+        
+        expectation(for: NSPredicate(format: "count > 0"), evaluatedWith: app.tables)
+        waitForExpectations(timeout: 15.0, handler: nil)
+    }
+    
+    func testLaunchArgumentsResetBetweenLaunches() {
+        let userDefaultKey = "test_key"
+        app.launchTunnel(withOptions: [SBTUITunneledApplicationLaunchOptionResetFilesystem])
+        XCTAssertNil(app.userDefaultsObject(forKey: userDefaultKey))
+
+        let randomString = ProcessInfo.processInfo.globallyUniqueString
+        app.userDefaultsSetObject(randomString as NSCoding & NSObjectProtocol, forKey: userDefaultKey)
+        
+        app.terminate()
+        
+        app.launchTunnel()
+        // UserDefaults shouldn't get reset
+        XCTAssertEqual(randomString, app.userDefaultsObject(forKey: userDefaultKey) as? String)
+    }
 }

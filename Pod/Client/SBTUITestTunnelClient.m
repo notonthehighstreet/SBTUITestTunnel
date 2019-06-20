@@ -108,9 +108,6 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
 
 - (void)launchTunnelWithStartupBlock:(void (^)(void))startupBlock
 {
-    self.initialLaunchArguments = self.application.launchArguments;
-    self.initialLaunchEnvironment = self.application.launchEnvironment;
-
     NSMutableArray *launchArguments = [self.application.launchArguments mutableCopy];
     [launchArguments addObject:SBTUITunneledApplicationLaunchSignal];
 
@@ -140,7 +137,7 @@ static NSTimeInterval SBTUITunneledApplicationDefaultTimeout = 30.0;
     [self shutDownWithError:nil];
 }
 
-- (void)terminateTunnel
+- (void)terminate
 {
     [self shutDownWithError:nil];
 }
