@@ -4,13 +4,13 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'SBTUITestTunnel_Example' do
-  pod 'SBTUITestTunnel/Server', :path => '../'
+  pod 'SBTUITestTunnel', :path => '../'
 end
 
 abstract_target 'Tests' do
-  pod 'SBTUITestTunnel/Server', :path => '../'
+  pod 'SBTUITestTunnel', :path => '../'
   pod 'GCDWebServer', :git=> 'https://github.com/tcamin/GCDWebServer.git'
-  pod 'SBTUITestTunnel/Client', :path => '../'
+  pod 'SBTUITestTunnel', :path => '../'
 
   target 'SBTUITestTunnel_Tests' do
   end

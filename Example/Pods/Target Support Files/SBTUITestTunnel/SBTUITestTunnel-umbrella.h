@@ -29,6 +29,7 @@
 #import "NSURLSession+HTTPBodyFix.h"
 #import "NSURLSessionConfiguration+SBTUITestTunnel.h"
 #import "SBTProxyURLProtocol.h"
+#import "SBTSwizzleHelpers.h"
 #import "SBTUITestTunnelServer.h"
 #import "UITextField+DisableAutocomplete.h"
 #import "NSData+gzip.h"

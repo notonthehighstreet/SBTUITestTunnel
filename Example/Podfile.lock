@@ -2,14 +2,16 @@ PODS:
   - GCDWebServer (3.3.4):
     - GCDWebServer/Core (= 3.3.4)
   - GCDWebServer/Core (3.3.4)
-  - SBTUITestTunnel/Client (3.2.3)
-  - SBTUITestTunnel/Server (3.2.3):
+  - SBTUITestTunnel (3.4.1):
+    - SBTUITestTunnel/Client (= 3.4.1)
+    - SBTUITestTunnel/Server (= 3.4.1)
+  - SBTUITestTunnel/Client (3.4.1)
+  - SBTUITestTunnel/Server (3.4.1):
     - GCDWebServer (~> 3.0)
 
 DEPENDENCIES:
   - GCDWebServer (from `https://github.com/tcamin/GCDWebServer.git`)
-  - SBTUITestTunnel/Client (from `../`)
-  - SBTUITestTunnel/Server (from `../`)
+  - SBTUITestTunnel (from `../`)
 
 EXTERNAL SOURCES:
   GCDWebServer:
@@ -24,8 +26,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   GCDWebServer: 0bd712acb4f246ce04d2ac321d33278fb1f72e63
-  SBTUITestTunnel: 109fef39f1084018a0085c4bb5b081e22ba6a0e0
+  SBTUITestTunnel: dfcb54d93a03090942f08a2d819a5bf7abd6c932
 
-PODFILE CHECKSUM: cbe68a2e74811497f9d73c37da751af1594c407b
+PODFILE CHECKSUM: 3f3630329d4b66eecc2f10660349e1206670e87c
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.2

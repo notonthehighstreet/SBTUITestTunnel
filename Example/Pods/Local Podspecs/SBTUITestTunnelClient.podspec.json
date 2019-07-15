@@ -1,5 +1,5 @@
 {
-  "name": "SBTUITestTunnel",
+  "name": "SBTUITestTunnelClient",
   "version": "3.4.1",
   "summary": "Enable network mocks and more in UI Tests",
   "description": "Use this library to easily setup an HTTP tunnel between our UI Tests cases and the app under test.\nThe tunnel allows to inject data in order to enabale network mocking.",
@@ -24,26 +24,10 @@
     "prebuild_configuration": "debug"
   },
   "libraries": "z",
-  "subspecs": [
-    {
-      "name": "Server",
-      "source_files": [
-        "Pod/Server/*.{h,m}",
-        "Pod/Common/*.{h,m}"
-      ],
-      "dependencies": {
-        "GCDWebServer": [
-          "~> 3.0"
-        ]
-      }
-    },
-    {
-      "name": "Client",
-      "frameworks": "XCTest",
-      "source_files": [
-        "Pod/Client/*.{h,m}",
-        "Pod/Common/*.{h,m}"
-      ]
-    }
-  ]
+  "frameworks": "XCTest",
+  "source_files": [
+    "Pod/Client/*.{h,m}",
+    "Pod/Common/*.{h,m}"
+  ],
+  "module_name": "SBTUITestTunnel"
 }
